@@ -1,4 +1,7 @@
+using System;
+using Core.Enums;
 using UnityEngine;
+using Core.Tools;
 
 namespace Player
 {
@@ -8,11 +11,13 @@ namespace Player
     {
         [Header("HorizontalMovement")]
         [SerializeField] private float _horizontalSpeed;
-        [SerializeField] private bool _faceRight;
+        [SerializeField] private Direction _direction;
 
         [Header("Jump")]
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _gravityScale;
+
+        [SerializeField] private DirectionalCameraPair _cameras;
 
         private Rigidbody2D _rigidbody;
 
@@ -49,14 +54,16 @@ namespace Player
 
         private void SetDirection(float direction)
         {
-            if (_faceRight && direction < 0 || !_faceRight && direction > 0)
+            if (_direction == Direction.Right && direction < 0 || _direction == Direction.Left && direction > 0)
                 Flip();
         }
 
         private void Flip()
         {
             transform.Rotate(0, 180, 0);
-            _faceRight = !_faceRight;
+            _direction = _direction == Direction.Right ? Direction.Left : Direction.Right;
+            foreach (var cameraPair in _cameras.DirectionalCameras)
+                cameraPair.Value.enabled = cameraPair.Key == _direction;
         }
 
         private void UpdateJump()
