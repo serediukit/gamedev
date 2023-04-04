@@ -6920,6 +6920,7 @@ GameObject:
   - component: {fileID: 324339460}
   - component: {fileID: 324339463}
   - component: {fileID: 324339466}
+  - component: {fileID: 324339467}
   - component: {fileID: 324339464}
   - component: {fileID: 324339465}
   m_Layer: 0
@@ -7045,6 +7046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e30dcf5912674419159bd2ededd038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 324339467}
   _horizontalSpeed: 4
   _direction: 0
   _jumpForce: 250
@@ -7084,6 +7086,27 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
+--- !u!95 &324339467
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324339459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 842269e3c0fdfe648b6bcedf279bb6ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &337826961
 PrefabInstance:
   m_ObjectHideFlags: 0
